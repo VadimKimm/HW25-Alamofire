@@ -1,0 +1,6 @@
+framework module Pods_HW25_Alamofire {
+  umbrella header "Pods-HW25-Alamofire-umbrella.h"
+
+  export *
+  module * { export * }
+}
