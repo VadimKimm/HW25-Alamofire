@@ -13,6 +13,8 @@ class MtgView: UIView {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.register(MtgTableViewCell.self,
+                           forCellReuseIdentifier: MtgTableViewCell.identifier)
         return tableView
     }()
 
