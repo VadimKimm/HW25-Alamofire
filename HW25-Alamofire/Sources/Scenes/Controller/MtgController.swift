@@ -51,7 +51,7 @@ extension MtgController {
             .validate()
             .responseDecodable(of: Cards.self) { (response) in
                 guard let data = response.value else { return }
-                let cards = data.cards
+                let cards = data.all
                 self.cards = cards
                 self.mtgView?.tableView.reloadData()
             }

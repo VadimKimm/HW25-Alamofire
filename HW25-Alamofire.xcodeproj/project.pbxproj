@@ -19,6 +19,7 @@
 		DD5BAB23289AA3E900CBF00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5BAB21289AA3E900CBF00B /* LaunchScreen.storyboard */; };
 		DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB32289AAA7B00CBF00B /* MtgView.swift */; };
 		DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */; };
+		DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF2328289C500300DAC447 /* CardsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DD5BAB24289AA3E900CBF00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5BAB32289AAA7B00CBF00B /* MtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgView.swift; sourceTree = "<group>"; };
 		DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgTableViewCell.swift; sourceTree = "<group>"; };
+		DDCF2328289C500300DAC447 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1DBD6D289C2B18005555A7 /* CardModel.swift */,
+				DDCF2328289C500300DAC447 /* CardsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */,
 				DD1DBD71289C38CF005555A7 /* Displayable.swift in Sources */,
 				DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */,
+				DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */,
 				DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */,
 				DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */,
 				DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */,

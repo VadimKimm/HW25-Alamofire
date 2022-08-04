@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Cards: Decodable {
-    let cards: [Card]
-}
-
 struct Card: Decodable {
     private let name: String?
     private let manaCost: String?
