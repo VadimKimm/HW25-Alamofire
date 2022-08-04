@@ -12,42 +12,38 @@ struct Cards: Decodable {
 }
 
 struct Card: Decodable {
-    let name: String?
-    let manaCost: String?
-    let type: String?
-    let rarity: String?
-    let setName: String?
-    let artist: String?
-    let power: String?
-    let legalities: [LegalityElement]?
+    private let name: String?
+    private let manaCost: String?
+    private let type: String?
+    private let rarity: String?
+    private let setName: String?
+    private let artist: String?
+    private let power: String?
+    private let legalities: [LegalityElement]?
+    private let imageURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name, manaCost, type, rarity, setName, artist, power, legalities
+        case imageURL = "imageUrl"
+    }
 
     struct LegalityElement: Decodable {
-        let format: TypeOfFormat
-        let legality: TypeOfLegality
+        let format: String
+        let legality: String
+    }
+}
+
+//MARK: - Displayable -
+
+extension Card: Displayable {
+    var cardNameLabelText: String {
+        guard let name = name else { return "Error" }
+        return name
     }
 
-    enum TypeOfFormat: String, Decodable {
-        case commander = "Commander"
-        case duel = "Duel"
-        case explorer = "Explorer"
-        case gladiator = "Gladiator"
-        case historic = "Historic"
-        case historicbrawl = "Historicbrawl"
-        case legacy = "Legacy"
-        case modern = "Modern"
-        case oldschool = "Oldschool"
-        case pauper = "Pauper"
-        case paupercommander = "Paupercommander"
-        case penny = "Penny"
-        case pioneer = "Pioneer"
-        case premodern = "Premodern"
-        case vintage = "Vintage"
-    }
-
-    enum TypeOfLegality: String, Decodable {
-        case banned = "Banned"
-        case legal = "Legal"
-        case restricted = "Restricted"
+    var manaCostLabelText: String {
+        guard let manaCost = manaCost else { return "Error" }
+        return String("Manacost: \(manaCost)")
     }
 }
 
