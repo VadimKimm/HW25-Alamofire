@@ -36,6 +36,7 @@ class MtgController: UIViewController {
     //MARK: - Private functions -
 
     private func configureView() {
+        title = "Magic The Gathering Cards"
         mtgView?.tableView.delegate = self
         mtgView?.tableView.dataSource = self
     }
