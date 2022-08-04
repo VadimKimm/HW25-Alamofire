@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class MtgController: UIViewController {
 
     //MARK: - Properties -
+
+    private var cards: [Card] = []
+    private let url = "https://api.magicthegathering.io/v1/cards"
 
     private var mtgView: MtgView? {
         guard isViewLoaded else { return nil }
@@ -26,6 +30,7 @@ class MtgController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        fetchCards()
     }
 
     //MARK: - Private functions -
@@ -36,15 +41,33 @@ class MtgController: UIViewController {
     }
 }
 
+//MARK: - Alamofire -
+
+extension MtgController {
+    private func fetchCards() {
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: Cards.self) { (response) in
+                guard let data = response.value else { return }
+                let cards = data.cards
+                self.cards = cards
+                self.mtgView?.tableView.reloadData()
+            }
+    }
+}
+
 //MARK: - UITableViewDataSource -
 
 extension MtgController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        cards.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let model = cards[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MtgTableViewCell.identifier) as? MtgTableViewCell else { return UITableViewCell() }
+        cell.configure(with: model)
+        return cell
     }
 }
 
