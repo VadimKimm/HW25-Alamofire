@@ -12,6 +12,27 @@ class MtgTableViewCell: UITableViewCell {
 
     static let identifier = "MtgTableViewCell"
 
+    // MARK: - Configuration -
+
+    func configure(with model: Card?) {
+        cardNameLabel.text = model?.cardNameLabelText
+        manaCostLabel.text = model?.manaCostLabelText
+
+//        guard let imagePath = model?.imageURL else { return }
+//
+//        let fullURL = imagePath.components(separatedBy: "//")
+//        let url = "https://" + fullURL[1]
+//
+//        guard let imageURL = URL(string: url),
+//              let imageData = try? Data(contentsOf: imageURL)
+//        else {
+//            cardImage.image = UIImage(named: "square-image")
+//            return
+//        }
+//        print(url)
+//        cardImage.image = UIImage(data: imageData)
+    }
+
     // MARK: - Views -
 
     private let cardImage: UIImageView = {
@@ -29,7 +50,7 @@ class MtgTableViewCell: UITableViewCell {
         return view
     }()
 
-    private let nameLabel: UILabel = {
+    private let cardNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.nameLabelFontSize, weight: .bold)
         label.numberOfLines = 1
@@ -55,7 +76,7 @@ class MtgTableViewCell: UITableViewCell {
         contentView.clipsToBounds = true
         contentView.addSubview(cardImageContainer)
         cardImageContainer.addSubview(cardImage)
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(cardNameLabel)
         contentView.addSubview(manaCostLabel)
     }
 
@@ -73,14 +94,14 @@ class MtgTableViewCell: UITableViewCell {
             make.edges.equalTo(cardImageContainer.snp.edges)
         }
 
-        nameLabel.snp.makeConstraints { make in
+        cardNameLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(Metrics.nameLabelTopOffset)
             make.left.equalTo(contentView.snp.left).offset(Metrics.nameLabelLeftOffset)
         }
 
         manaCostLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(Metrics.manaCostLabelTopOffset)
-            make.left.equalTo(nameLabel.snp.left)
+            make.top.equalTo(cardNameLabel.snp.bottom).offset(Metrics.manaCostLabelTopOffset)
+            make.left.equalTo(cardNameLabel.snp.left)
         }
     }
 }
