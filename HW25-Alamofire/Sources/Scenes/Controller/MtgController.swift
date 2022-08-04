@@ -14,6 +14,7 @@ class MtgController: UIViewController {
 
     private var cards: [Card] = []
     private let url = "https://api.magicthegathering.io/v1/cards"
+    private var selectedCard: Displayable?
 
     private var mtgView: MtgView? {
         guard isViewLoaded else { return nil }
@@ -77,6 +78,18 @@ extension MtgController: UITableViewDataSource {
 extension MtgController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
+    }
+
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedCard = cards[indexPath.row]
+        return indexPath
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailViewController = DetailMtgController()
+        detailViewController.card = selectedCard
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
