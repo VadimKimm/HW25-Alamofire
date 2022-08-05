@@ -14,41 +14,12 @@ class MtgTableViewCell: UITableViewCell {
 
     // MARK: - Configuration -
 
-    func configure(with model: Card?) {
-        cardNameLabel.text = model?.cardNameLabelText
-        manaCostLabel.text = model?.manaCostLabelText
-
-//        guard let imagePath = model?.imageURL else { return }
-//
-//        let fullURL = imagePath.components(separatedBy: "//")
-//        let url = "https://" + fullURL[1]
-//
-//        guard let imageURL = URL(string: url),
-//              let imageData = try? Data(contentsOf: imageURL)
-//        else {
-//            cardImage.image = UIImage(named: "square-image")
-//            return
-//        }
-//        print(url)
-//        cardImage.image = UIImage(data: imageData)
+    func configure(with card: Card?) {
+        cardNameLabel.text = card?.nameLabelText
+        cardTypeLabel.text = card?.typeLabelText
     }
 
     // MARK: - Views -
-
-    private let cardImage: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
-
-    private let cardImageContainer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.masksToBounds = true
-        view.clipsToBounds = true
-        return view
-    }()
 
     private let cardNameLabel: UILabel = {
         let label = UILabel()
@@ -57,7 +28,7 @@ class MtgTableViewCell: UITableViewCell {
         return label
     }()
 
-    private let manaCostLabel: UILabel = {
+    private let cardTypeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.manaCostLabelFontSize)
         label.numberOfLines = 1
@@ -73,33 +44,19 @@ class MtgTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.clipsToBounds = true
-        contentView.addSubview(cardImageContainer)
-        cardImageContainer.addSubview(cardImage)
         contentView.addSubview(cardNameLabel)
-        contentView.addSubview(manaCostLabel)
+        contentView.addSubview(cardTypeLabel)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        cardImageContainer.snp.makeConstraints { make in
-            make.width.equalTo(contentView.snp.height).offset(Metrics.cardImageContainerWidthOffset)
-            make.height.equalTo(contentView.snp.height).offset(Metrics.cardImageContainerHeightOffset)
-            make.right.equalTo(contentView.snp.right).offset(Metrics.cardImageContainerRightOffset)
-            make.centerY.equalTo(contentView.snp.centerY)
-        }
-
-        cardImage.snp.makeConstraints { make in
-            make.edges.equalTo(cardImageContainer.snp.edges)
-        }
 
         cardNameLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(Metrics.nameLabelTopOffset)
             make.left.equalTo(contentView.snp.left).offset(Metrics.nameLabelLeftOffset)
         }
 
-        manaCostLabel.snp.makeConstraints { make in
+        cardTypeLabel.snp.makeConstraints { make in
             make.top.equalTo(cardNameLabel.snp.bottom).offset(Metrics.manaCostLabelTopOffset)
             make.left.equalTo(cardNameLabel.snp.left)
         }
@@ -108,10 +65,6 @@ class MtgTableViewCell: UITableViewCell {
 
 extension MtgTableViewCell {
     enum Metrics {
-        static let cardImageContainerWidthOffset = -5
-        static let cardImageContainerHeightOffset = -5
-        static let cardImageContainerRightOffset = -15
-
         static let nameLabelFontSize: CGFloat = 17
         static let manaCostLabelFontSize: CGFloat = 14
 
