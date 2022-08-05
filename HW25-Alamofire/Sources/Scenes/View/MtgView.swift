@@ -20,16 +20,18 @@ class MtgView: UIView {
 
     lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "Find card by name"
+        textField.placeholder = "Find card by name"
         textField.textAlignment = .center
-        textField.layer.cornerRadius = 10
+        textField.layer.cornerRadius = Metrics.cornerRadius
+        textField.clearsOnBeginEditing = true
+        textField.clearButtonMode = .whileEditing
         textField.backgroundColor = .systemGray4
         return textField
     }()
 
     lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Metrics.cornerRadius
         button.setTitle("Search", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.backgroundColor = .systemGray4
@@ -110,5 +112,7 @@ extension MtgView {
         static let searchButtonWidth = 80
 
         static let separatorLineTopOffset = 10
+
+        static let cornerRadius = 10
     }
 }
