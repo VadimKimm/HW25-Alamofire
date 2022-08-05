@@ -68,16 +68,6 @@ extension MtgController {
             }
     }
 
-    private func searchCard(for name: String) {
-        let parameters: [String: String] = ["name": name]
-        AF.request(url, parameters: parameters)
-            .validate()
-            .responseDecodable(of: Cards.self) { (response) in
-                guard let data = response.value else { return }
-                let cards = data.all
-                self.cards = cards
-                self.mtgView?.tableView.reloadData()
-            }
     }
 }
 
