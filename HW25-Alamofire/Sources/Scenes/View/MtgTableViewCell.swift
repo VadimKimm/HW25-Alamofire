@@ -21,14 +21,14 @@ class MtgTableViewCell: UITableViewCell {
 
     // MARK: - Views -
 
-    private let cardNameLabel: UILabel = {
+    private lazy var cardNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.nameLabelFontSize, weight: .bold)
         label.numberOfLines = 1
         return label
     }()
 
-    private let cardTypeLabel: UILabel = {
+    private lazy var cardTypeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.manaCostLabelFontSize)
         label.numberOfLines = 1
@@ -57,11 +57,13 @@ class MtgTableViewCell: UITableViewCell {
         }
 
         cardTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(cardNameLabel.snp.bottom).offset(Metrics.manaCostLabelTopOffset)
+            make.top.equalTo(cardNameLabel.snp.bottom).offset(Metrics.cardTypeLabelTopOffset)
             make.left.equalTo(cardNameLabel.snp.left)
         }
     }
 }
+
+//MARK: - Metrics -
 
 extension MtgTableViewCell {
     enum Metrics {
@@ -70,6 +72,6 @@ extension MtgTableViewCell {
 
         static let nameLabelTopOffset = 15
         static let nameLabelLeftOffset = 17
-        static let manaCostLabelTopOffset = 15
+        static let cardTypeLabelTopOffset = 10
     }
 }
