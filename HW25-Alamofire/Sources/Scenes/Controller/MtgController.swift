@@ -56,15 +56,27 @@ class MtgController: UIViewController {
 //MARK: - Alamofire -
 
 extension MtgController {
-    private func fetchCards() {
-        AF.request(url)
-            .validate()
+    private func fetchCards(parameters: [String: String]?, completion: @escaping (Cards) -> Void) {
+        AF.request(url, parameters: parameters)
+            .validate(statusCode: 200..<300)
             .responseDecodable(of: Cards.self) { (response) in
-                guard let data = response.value else { return }
-                let cards = data.all
-                self.cards = cards
-                self.savedCards = cards
-                self.mtgView?.tableView.reloadData()
+                if let error = response.error {
+                    self.showAlert(message: error.localizedDescription)
+                }
+
+                if let statusCode = response.response?.statusCode, statusCode == 200 {
+                    print("Server status -  \(statusCode)")
+                } else if let statusCode = response.response?.statusCode {
+                    self.showAlert(message: "Server status -  \(statusCode)")
+                    return
+                }
+
+                guard let data = response.value else {
+                    self.showAlert(message: "No data")
+                    return
+                }
+
+                completion(data)
             }
     }
 
