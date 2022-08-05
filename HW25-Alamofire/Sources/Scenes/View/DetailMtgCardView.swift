@@ -12,47 +12,79 @@ class DetailMtgCardView: UIView {
     // MARK: - Configuration -
 
     func configure(with card: Displayable?) {
-        cardNameLabel.text = card?.nameLabelText
-        cardTypeLabel.text = card?.typeLabelText
+        nameLabel.text = card?.nameLabelText
+        typeLabel.text = card?.typeLabelText
         descriptionLabel.text = card?.descriptionLabelText
-        rarityTypeLabel.text = card?.rarityLabelText
+        rarityLabel.text = card?.rarityLabelText
         manaCostLabel.text = card?.manaCostLabelText
+        setNameLabel.text = card?.setNameLabelText
+        powerLabel.text = card?.powerLabelText
+        artistLabel.text = card?.artistLabelText
+        legalitiesLabel.text = card?.legalitieslabelText
     }
 
     // MARK: - View -
 
-    private let cardNameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.nameLabelFontSize, weight: .bold)
         label.numberOfLines = 1
         return label
     }()
 
-    private let cardTypeLabel: UILabel = {
+    private lazy var typeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
         label.numberOfLines = 1
         return label
     }()
 
-    private let descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
         label.numberOfLines = 0
         return label
     }()
 
-    private let rarityTypeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
-        label.numberOfLines = 0
-        return label
-    }()
-
-    private let manaCostLabel: UILabel = {
+    private lazy var rarityLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
         label.numberOfLines = 1
+        return label
+    }()
+
+    private lazy var setNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 1
+        return label
+    }()
+
+    private var powerLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 1
+        return label
+    }()
+
+    private lazy var artistLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 1
+        return label
+    }()
+
+    private lazy var manaCostLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 1
+        return label
+    }()
+
+    private lazy var legalitiesLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 0
         return label
     }()
 
@@ -77,38 +109,63 @@ class DetailMtgCardView: UIView {
     // MARK: - Settings -
 
     private func setupHierarchy() {
-        addSubview(cardNameLabel)
-        addSubview(cardTypeLabel)
+        addSubview(nameLabel)
+        addSubview(typeLabel)
         addSubview(descriptionLabel)
-        addSubview(rarityTypeLabel)
+        addSubview(rarityLabel)
+        addSubview(setNameLabel)
+        addSubview(powerLabel)
+        addSubview(artistLabel)
         addSubview(manaCostLabel)
+        addSubview(legalitiesLabel)
     }
 
     private func setupLayout() {
-        cardNameLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(Metrics.primaryTopOffset)
         }
 
-        cardTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(cardNameLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
-        }
-
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(cardTypeLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.top.equalTo(nameLabel.snp.bottom).offset(Metrics.primaryTopOffset)
             make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
             make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
 
-        rarityTypeLabel.snp.makeConstraints { make in
+        typeLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(Metrics.primaryTopOffset)
             make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         manaCostLabel.snp.makeConstraints { make in
-            make.top.equalTo(rarityTypeLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.top.equalTo(typeLabel.snp.bottom).offset(Metrics.primaryTopOffset)
             make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+        }
+
+        rarityLabel.snp.makeConstraints { make in
+            make.top.equalTo(manaCostLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+        }
+
+        powerLabel.snp.makeConstraints { make in
+            make.top.equalTo(rarityLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+        }
+
+        setNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(powerLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+        }
+
+        artistLabel.snp.makeConstraints { make in
+            make.top.equalTo(setNameLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+        }
+
+        legalitiesLabel.snp.makeConstraints { make in
+            make.top.equalTo(artistLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
     }
 }
