@@ -8,6 +8,13 @@
 import Foundation
 
 protocol Displayable {
-    var cardNameLabelText: String { get }
+    var nameLabelText: String { get }
     var manaCostLabelText: String { get }
+    var typeLabelText: String { get }
+    var rarityLabelText: String { get }
+    var setNameLabelText: String { get }
+    var artistLabelText: String { get }
+    var powerLabelText: String { get }
+    var descriptionLabelText: String { get }
+    var legalitieslabelText: String { get }
 }
