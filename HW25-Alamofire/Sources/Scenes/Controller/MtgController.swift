@@ -44,6 +44,13 @@ class MtgController: UIViewController {
         mtgView?.tableView.keyboardDismissMode = .onDrag
         mtgView?.searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
+
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Close", style: .cancel)
+        alert.addAction(okButton)
+        navigationController?.present(alert, animated: true)
+    }
 }
 
 //MARK: - Alamofire -
