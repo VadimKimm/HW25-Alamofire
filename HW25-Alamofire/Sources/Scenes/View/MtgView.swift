@@ -18,6 +18,14 @@ class MtgView: UIView {
         return tableView
     }()
 
+    lazy var searchTextField: UITextField = {
+        let textField = UITextField()
+        textField.text = "Find card by name"
+        textField.textAlignment = .center
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = .systemGray4
+        return textField
+    }()
     // MARK: - Initial -
 
     init() {
@@ -33,16 +41,24 @@ class MtgView: UIView {
     private func commonInit() {
         setupHierarchy()
         setupLayout()
+        backgroundColor = .white
     }
 
     // MARK: - Settings -
 
     private func setupHierarchy() {
+        addSubview(searchTextField)
         addSubview(tableView)
     }
 
     private func setupLayout() {
-        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        searchTextField.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(Metrics.searchTextFieldTopOffset)
+            make.centerX.equalTo(self.snp.centerX)
+            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.searchTextFieldLeftOffset)
+            make.right.equalTo(searchButton.snp.left).offset(Metrics.searchTextFieldRightOffset)
+            make.height.equalTo(40)
+        }
     }
 }
 
