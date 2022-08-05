@@ -113,6 +113,6 @@ extension MtgView {
 
         static let separatorLineTopOffset = 10
 
-        static let cornerRadius = 10
+        static let cornerRadius: CGFloat = 10
     }
 }

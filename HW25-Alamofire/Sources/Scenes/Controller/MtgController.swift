@@ -13,6 +13,7 @@ class MtgController: UIViewController {
     //MARK: - Properties -
 
     private var cards: [Card] = []
+    private var savedCards: [Card] = []
     private let url = "https://api.magicthegathering.io/v1/cards"
     private var selectedCard: Displayable?
 
@@ -40,6 +41,8 @@ class MtgController: UIViewController {
         title = "Magic The Gathering Cards"
         mtgView?.tableView.delegate = self
         mtgView?.tableView.dataSource = self
+        mtgView?.tableView.keyboardDismissMode = .onDrag
+        mtgView?.searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
 }
 
@@ -48,6 +51,19 @@ class MtgController: UIViewController {
 extension MtgController {
     private func fetchCards() {
         AF.request(url)
+            .validate()
+            .responseDecodable(of: Cards.self) { (response) in
+                guard let data = response.value else { return }
+                let cards = data.all
+                self.cards = cards
+                self.savedCards = cards
+                self.mtgView?.tableView.reloadData()
+            }
+    }
+
+    private func searchCard(for name: String) {
+        let parameters: [String: String] = ["name": name]
+        AF.request(url, parameters: parameters)
             .validate()
             .responseDecodable(of: Cards.self) { (response) in
                 guard let data = response.value else { return }
@@ -93,3 +109,15 @@ extension MtgController: UITableViewDelegate {
     }
 }
 
+//MARK: - @objc functions -
+
+extension MtgController {
+    @objc func searchButtonPressed(sender: UIButton) {
+        guard let cardName = mtgView?.searchTextField.text, cardName != "" else {
+            self.cards = savedCards
+            self.mtgView?.tableView.reloadData()
+            return
+        }
+        searchCard(for: cardName)
+    }
+}
