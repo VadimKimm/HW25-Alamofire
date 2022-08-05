@@ -59,7 +59,7 @@ class MtgView: UIView {
     private func commonInit() {
         setupHierarchy()
         setupLayout()
-        backgroundColor = .white
+        setupView()
     }
 
     // MARK: - Settings -
@@ -76,7 +76,7 @@ class MtgView: UIView {
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(Metrics.searchTextFieldTopOffset)
             make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.searchTextFieldLeftOffset)
             make.right.equalTo(searchButton.snp.left).offset(Metrics.searchTextFieldRightOffset)
-            make.height.equalTo(40)
+            make.height.equalTo(Metrics.searchTextFieldHeight)
         }
 
         searchButton.snp.makeConstraints { make in
@@ -100,13 +100,20 @@ class MtgView: UIView {
             make.bottom.equalTo(self.snp.bottom)
         }
     }
+
+    private func setupView() {
+        backgroundColor = .white
+    }
 }
+
+//MARK: - Metrics -
 
 extension MtgView {
     enum Metrics {
         static let searchTextFieldTopOffset = 10
         static let searchTextFieldLeftOffset = 10
         static let searchTextFieldRightOffset = -10
+        static let searchTextFieldHeight = 40
 
         static let searchButtonRightOffset = -20
         static let searchButtonWidth = 80
