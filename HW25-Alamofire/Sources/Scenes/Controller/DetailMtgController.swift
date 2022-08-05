@@ -30,6 +30,8 @@ class DetailMtgController: UIViewController {
       commonInit()
     }
 
+    //MARK: - Private functions -
+
     private func commonInit() {
         detailMtgView?.configure(with: card)
     }
