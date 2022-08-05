@@ -26,6 +26,15 @@ class MtgView: UIView {
         textField.backgroundColor = .systemGray4
         return textField
     }()
+
+    lazy var searchButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.layer.cornerRadius = 10
+        button.setTitle("Search", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = .systemGray4
+        return button
+    }()
     // MARK: - Initial -
 
     init() {
@@ -48,6 +57,7 @@ class MtgView: UIView {
 
     private func setupHierarchy() {
         addSubview(searchTextField)
+        addSubview(searchButton)
         addSubview(tableView)
     }
 
@@ -59,6 +69,14 @@ class MtgView: UIView {
             make.right.equalTo(searchButton.snp.left).offset(Metrics.searchTextFieldRightOffset)
             make.height.equalTo(40)
         }
+
+        searchButton.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField)
+            make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.searchButtonRightOffset)
+            make.height.equalTo(searchTextField)
+            make.width.equalTo(80)
+        }
+
     }
 }
 
