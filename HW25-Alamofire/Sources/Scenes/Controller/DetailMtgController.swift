@@ -13,16 +13,16 @@ class DetailMtgController: UIViewController {
 
     var card: Displayable?
 
-    private var detailMtgView: DetailMtgView? {
+    private var detailMtgView: DetailMtgCardView? {
         guard isViewLoaded else { return nil }
-        return view as? DetailMtgView
+        return view as? DetailMtgCardView
     }
 
     //MARK: - Lifecycle -
 
     override func loadView() {
         super.loadView()
-        view = DetailMtgView()
+        view = DetailMtgCardView()
     }
 
     override func viewDidLoad() {

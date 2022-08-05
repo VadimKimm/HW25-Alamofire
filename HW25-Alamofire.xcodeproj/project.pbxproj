@@ -11,7 +11,7 @@
 		DD1DBD6E289C2B18005555A7 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD6D289C2B18005555A7 /* CardModel.swift */; };
 		DD1DBD71289C38CF005555A7 /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD70289C38CF005555A7 /* Displayable.swift */; };
 		DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD73289C3D2D005555A7 /* DetailMtgController.swift */; };
-		DD1DBD76289C3D80005555A7 /* DetailMtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD75289C3D80005555A7 /* DetailMtgView.swift */; };
+		DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */; };
 		DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */; };
 		DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */; };
 		DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB1A289AA3E700CBF00B /* MtgController.swift */; };
@@ -29,7 +29,7 @@
 		DD1DBD6D289C2B18005555A7 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		DD1DBD70289C38CF005555A7 /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		DD1DBD73289C3D2D005555A7 /* DetailMtgController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgController.swift; sourceTree = "<group>"; };
-		DD1DBD75289C3D80005555A7 /* DetailMtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgView.swift; sourceTree = "<group>"; };
+		DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgCardView.swift; sourceTree = "<group>"; };
 		DD5BAB13289AA3E700CBF00B /* HW25-Alamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW25-Alamofire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 			children = (
 				DD5BAB32289AAA7B00CBF00B /* MtgView.swift */,
 				DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */,
-				DD1DBD75289C3D80005555A7 /* DetailMtgView.swift */,
+				DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1DBD76289C3D80005555A7 /* DetailMtgView.swift in Sources */,
+				DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */,
 				DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */,
 				DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */,
 				DD1DBD71289C38CF005555A7 /* Displayable.swift in Sources */,
