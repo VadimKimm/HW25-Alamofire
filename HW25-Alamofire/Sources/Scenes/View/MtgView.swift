@@ -35,6 +35,13 @@ class MtgView: UIView {
         button.backgroundColor = .systemGray4
         return button
     }()
+
+    lazy var separatorLine: UIView = {
+        let separator = UIView()
+        separator.backgroundColor = .systemGray4
+        return separator
+    }()
+
     // MARK: - Initial -
 
     init() {
@@ -58,6 +65,7 @@ class MtgView: UIView {
     private func setupHierarchy() {
         addSubview(searchTextField)
         addSubview(searchButton)
+        addSubview(separatorLine)
         addSubview(tableView)
     }
 
@@ -77,6 +85,30 @@ class MtgView: UIView {
             make.width.equalTo(80)
         }
 
+        separatorLine.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField.snp.bottom).offset(Metrics.separatorLineTopOffset)
+            make.height.equalTo(2)
+            make.left.equalTo(searchTextField.snp.left)
+            make.right.equalTo(searchButton.snp.right)
+        }
+
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(separatorLine.snp.bottom)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.bottom.equalTo(self.snp.bottom)
+        }
     }
 }
 
+extension MtgView {
+    enum Metrics {
+        static let searchTextFieldTopOffset = 10
+        static let searchTextFieldLeftOffset = 10
+        static let searchTextFieldRightOffset = -10
+
+        static let searchButtonRightOffset = -20
+
+        static let separatorLineTopOffset = 10
+    }
+}
