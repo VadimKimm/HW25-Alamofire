@@ -134,6 +134,13 @@ extension MtgController {
             self.mtgView?.tableView.reloadData()
             return
         }
-        searchCard(for: cardName)
+
+        let parameters: [String: String] = ["name": cardName]
+
+        fetchCards(parameters: parameters) { data in
+            let cards = data.all
+            self.cards = cards
+            self.mtgView?.tableView.reloadData()
+        }
     }
 }
