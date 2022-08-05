@@ -13,7 +13,7 @@ class MtgController: UIViewController {
     //MARK: - Properties -
 
     private var cards: [Card] = []
-    private var savedCards: [Card] = []
+    private lazy var savedCards: [Card] = []
     private let url = "https://api.magicthegathering.io/v1/cards"
     private var selectedCard: Displayable?
 
@@ -32,7 +32,7 @@ class MtgController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        fetchCards()
+        fetchAllCards()
     }
 
     //MARK: - Private functions -
@@ -80,6 +80,13 @@ extension MtgController {
             }
     }
 
+    private func fetchAllCards() {
+        fetchCards(parameters: nil) { data in
+            let cards = data.all
+            self.cards = cards
+            self.savedCards = cards
+            self.mtgView?.tableView.reloadData()
+        }
     }
 }
 
