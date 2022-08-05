@@ -72,7 +72,6 @@ class MtgView: UIView {
     private func setupLayout() {
         searchTextField.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(Metrics.searchTextFieldTopOffset)
-            make.centerX.equalTo(self.snp.centerX)
             make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.searchTextFieldLeftOffset)
             make.right.equalTo(searchButton.snp.left).offset(Metrics.searchTextFieldRightOffset)
             make.height.equalTo(40)
@@ -82,7 +81,7 @@ class MtgView: UIView {
             make.top.equalTo(searchTextField)
             make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.searchButtonRightOffset)
             make.height.equalTo(searchTextField)
-            make.width.equalTo(80)
+            make.width.equalTo(Metrics.searchButtonWidth)
         }
 
         separatorLine.snp.makeConstraints { make in
@@ -108,6 +107,7 @@ extension MtgView {
         static let searchTextFieldRightOffset = -10
 
         static let searchButtonRightOffset = -20
+        static let searchButtonWidth = 80
 
         static let separatorLineTopOffset = 10
     }
