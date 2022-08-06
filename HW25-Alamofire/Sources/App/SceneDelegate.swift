@@ -18,4 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         self.window = window
     }
+
+    private func setupTabBarAppearance() {
+        if #available(iOS 15, *) {
+              let tabBarAppearance = UITabBarAppearance()
+              tabBarAppearance.configureWithDefaultBackground()
+              UITabBar.appearance().standardAppearance = tabBarAppearance
+              UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
+    }
 }
