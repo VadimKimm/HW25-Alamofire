@@ -22,3 +22,32 @@ struct Comic: Decodable {
         }
     }
 }
+
+//MARK: - ComicsDisplayable -
+
+extension Comic: ComicDisplayable {
+
+    var titleLabelText: String {
+        guard let title = title else {
+            return "Comics has no title"
+        }
+        return title
+    }
+
+    var idLabelText: Int {
+        guard let id = id else {
+            return -1
+        }
+        return id
+    }
+
+    var imageUrl: String {
+        guard let thumbnail = thumbnail else {
+            return "Comics has image"
+        }
+
+        let fullThumbnail = thumbnail.path.components(separatedBy: "//")
+        let url = "https://" + fullThumbnail[1] + "." + thumbnail.thumbnailExtension
+        return url
+    }
+}
