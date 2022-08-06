@@ -11,7 +11,7 @@ class DetailMtgController: UIViewController {
 
     //MARK: - Properties -
 
-    var card: Displayable?
+    var card: MtgDisplayable?
 
     private var detailMtgView: DetailMtgCardView? {
         guard isViewLoaded else { return nil }
@@ -29,6 +29,8 @@ class DetailMtgController: UIViewController {
       super.viewDidLoad()
       commonInit()
     }
+
+    //MARK: - Private functions -
 
     private func commonInit() {
         detailMtgView?.configure(with: card)

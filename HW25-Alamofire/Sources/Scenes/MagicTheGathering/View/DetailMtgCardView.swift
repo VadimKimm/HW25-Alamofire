@@ -7,11 +7,11 @@
 
 import UIKit
 
-class DetailMtgCardView: UIView {
+class DetailMtgCardView: UIScrollView {
 
     // MARK: - Configuration -
 
-    func configure(with card: Displayable?) {
+    func configure(with card: MtgDisplayable?) {
         nameLabel.text = card?.nameLabelText
         typeLabel.text = card?.typeLabelText
         descriptionLabel.text = card?.descriptionLabelText
@@ -24,6 +24,11 @@ class DetailMtgCardView: UIView {
     }
 
     // MARK: - View -
+
+    private lazy var parentView: UIView = {
+        let view = UIView()
+        return view
+    }()
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -103,81 +108,95 @@ class DetailMtgCardView: UIView {
     private func commonInit() {
         setupHierarchy()
         setupLayout()
-        backgroundColor = .white
+        setupView()
     }
 
     // MARK: - Settings -
 
     private func setupHierarchy() {
-        addSubview(nameLabel)
-        addSubview(typeLabel)
-        addSubview(descriptionLabel)
-        addSubview(rarityLabel)
-        addSubview(setNameLabel)
-        addSubview(powerLabel)
-        addSubview(artistLabel)
-        addSubview(manaCostLabel)
-        addSubview(legalitiesLabel)
+        addSubview(parentView)
+        parentView.addSubview(nameLabel)
+        parentView.addSubview(typeLabel)
+        parentView.addSubview(descriptionLabel)
+        parentView.addSubview(rarityLabel)
+        parentView.addSubview(setNameLabel)
+        parentView.addSubview(powerLabel)
+        parentView.addSubview(artistLabel)
+        parentView.addSubview(manaCostLabel)
+        parentView.addSubview(legalitiesLabel)
     }
 
     private func setupLayout() {
+        parentView.snp.makeConstraints { make in
+            make.edges.equalTo(self.snp.edges)
+            make.width.equalTo(self.snp.width)
+            make.height.equalTo(self.snp.height).offset(Metrics.parentViewHeightOffset)
+        }
+
         nameLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(self.snp.centerX)
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(Metrics.primaryTopOffset)
+            make.centerX.equalTo(parentView.snp.centerX)
+            make.top.equalTo(parentView.safeAreaLayoutGuide.snp.top).offset(Metrics.primaryTopOffset)
         }
 
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
-            make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
 
         typeLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         manaCostLabel.snp.makeConstraints { make in
             make.top.equalTo(typeLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         rarityLabel.snp.makeConstraints { make in
             make.top.equalTo(manaCostLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         powerLabel.snp.makeConstraints { make in
             make.top.equalTo(rarityLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         setNameLabel.snp.makeConstraints { make in
             make.top.equalTo(powerLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         artistLabel.snp.makeConstraints { make in
             make.top.equalTo(setNameLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
         }
 
         legalitiesLabel.snp.makeConstraints { make in
             make.top.equalTo(artistLabel.snp.bottom).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(self.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
-            make.right.equalTo(self.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
     }
+
+    private func setupView() {
+        backgroundColor = .white
+    }
 }
+
+//MARK: - Metrics -
 
 extension DetailMtgCardView {
     enum Metrics {
         static let nameLabelFontSize: CGFloat = 22
         static let primaryFontSize: CGFloat = 14
 
+        static let parentViewHeightOffset = 220
+
         static let primaryTopOffset = 15
         static let primaryLeftOffset = 15
         static let primaryRightOffset = -20
     }
 }
-
