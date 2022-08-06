@@ -13,8 +13,8 @@ class ComicsView: UIView {
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.register(ComicsTableViewCell.self,
-                           forCellReuseIdentifier: ComicsTableViewCell.identifier)
+        tableView.register(ComicTableViewCell.self,
+                           forCellReuseIdentifier: ComicTableViewCell.identifier)
         return tableView
     }()
 
