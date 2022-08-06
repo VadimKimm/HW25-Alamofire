@@ -19,6 +19,7 @@
 		DD5BAB23289AA3E900CBF00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5BAB21289AA3E900CBF00B /* LaunchScreen.storyboard */; };
 		DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB32289AAA7B00CBF00B /* MtgView.swift */; };
 		DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */; };
+		DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F18289E96C000EB6D21 /* ComicsView.swift */; };
 		DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF2328289C500300DAC447 /* CardsModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		DD5BAB24289AA3E900CBF00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5BAB32289AAA7B00CBF00B /* MtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgView.swift; sourceTree = "<group>"; };
 		DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgTableViewCell.swift; sourceTree = "<group>"; };
+		DD805F18289E96C000EB6D21 /* ComicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsView.swift; sourceTree = "<group>"; };
 		DDCF2328289C500300DAC447 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,22 @@
 			path = MagicTheGathering;
 			sourceTree = "<group>";
 		};
+		DD805F11289E95D800EB6D21 /* Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				DD805F13289E95ED00EB6D21 /* View */,
+			);
+			path = Marvel;
+			sourceTree = "<group>";
+		};
+		DD805F13289E95ED00EB6D21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD805F18289E96C000EB6D21 /* ComicsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */,
+				DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */,
 				DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */,
 				DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */,
 				DD1DBD71289C38CF005555A7 /* MtgDisplayable.swift in Sources */,
