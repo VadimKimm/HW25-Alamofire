@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mtgController = MtgController()
         mtgController.title = "Magic The Gathering Cards"
 
-        let marvelController = MarvelController()
+        let marvelController = ComicsController()
         marvelController.title = "Marvel comics"
 
         tabBarController.setViewControllers([UINavigationController(rootViewController: mtgController),

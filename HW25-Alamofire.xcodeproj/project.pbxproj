@@ -23,6 +23,7 @@
 		DD5BAB23289AA3E900CBF00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5BAB21289AA3E900CBF00B /* LaunchScreen.storyboard */; };
 		DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB32289AAA7B00CBF00B /* MtgView.swift */; };
 		DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */; };
+		DD805F17289E963500EB6D21 /* ComicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F16289E963500EB6D21 /* ComicsController.swift */; };
 		DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F18289E96C000EB6D21 /* ComicsView.swift */; };
 		DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF2328289C500300DAC447 /* CardsModel.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		DD5BAB24289AA3E900CBF00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5BAB32289AAA7B00CBF00B /* MtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgView.swift; sourceTree = "<group>"; };
 		DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgTableViewCell.swift; sourceTree = "<group>"; };
+		DD805F16289E963500EB6D21 /* ComicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsController.swift; sourceTree = "<group>"; };
 		DD805F18289E96C000EB6D21 /* ComicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsView.swift; sourceTree = "<group>"; };
 		DDCF2328289C500300DAC447 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				DD805F15289E95F900EB6D21 /* Protocols */,
+				DD805F14289E95F000EB6D21 /* Controller */,
 				DD805F13289E95ED00EB6D21 /* View */,
 				DD805F12289E95E800EB6D21 /* Model */,
 			);
@@ -218,6 +221,14 @@
 				DD092CB9289EC2EA0095775A /* ComicTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DD805F14289E95F000EB6D21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD805F16289E963500EB6D21 /* ComicsController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DD805F15289E95F900EB6D21 /* Protocols */ = {
@@ -357,6 +368,7 @@
 				DD1DBD6E289C2B18005555A7 /* CardModel.swift in Sources */,
 				DD092CB8289EB8C00095775A /* ComicsModel.swift in Sources */,
 				DD092CBA289EC2EA0095775A /* ComicTableViewCell.swift in Sources */,
+				DD805F17289E963500EB6D21 /* ComicsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
