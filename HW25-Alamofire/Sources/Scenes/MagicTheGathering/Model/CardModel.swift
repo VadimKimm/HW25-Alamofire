@@ -33,7 +33,7 @@ struct Card: Decodable {
 
 //MARK: - Displayable -
 
-extension Card: Displayable {
+extension Card: MtgDisplayable {
     var nameLabelText: String {
         guard let name = name else {
             return "Name: Card has no name"

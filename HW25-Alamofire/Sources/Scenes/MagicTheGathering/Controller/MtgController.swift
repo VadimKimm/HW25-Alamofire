@@ -15,7 +15,7 @@ class MtgController: UIViewController {
     private var cards: [Card] = []
     private lazy var savedCards: [Card] = []
     private let url = "https://api.magicthegathering.io/v1/cards"
-    private var selectedCard: Displayable?
+    private var selectedCard: MtgDisplayable?
 
     private var mtgView: MtgView? {
         guard isViewLoaded else { return nil }

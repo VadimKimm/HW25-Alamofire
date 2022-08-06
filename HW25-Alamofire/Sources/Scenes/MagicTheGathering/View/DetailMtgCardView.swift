@@ -11,7 +11,7 @@ class DetailMtgCardView: UIScrollView {
 
     // MARK: - Configuration -
 
-    func configure(with card: Displayable?) {
+    func configure(with card: MtgDisplayable?) {
         nameLabel.text = card?.nameLabelText
         typeLabel.text = card?.typeLabelText
         descriptionLabel.text = card?.descriptionLabelText

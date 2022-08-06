@@ -1,5 +1,5 @@
 //
-//  Displayable.swift
+//  MtgDisplayable.swift
 //  HW25-Alamofire
 //
 //  Created by Vadim Kim on 04.08.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Displayable {
+protocol MtgDisplayable {
     var nameLabelText: String { get }
     var manaCostLabelText: String { get }
     var typeLabelText: String { get }
