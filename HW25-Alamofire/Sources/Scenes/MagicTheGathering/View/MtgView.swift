@@ -102,7 +102,7 @@ class MtgView: UIView {
     }
 
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
 }
 

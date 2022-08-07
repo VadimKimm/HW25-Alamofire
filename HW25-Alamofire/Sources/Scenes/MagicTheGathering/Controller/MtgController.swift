@@ -38,7 +38,6 @@ class MtgController: UIViewController {
     //MARK: - Private functions -
 
     private func configureView() {
-        title = "Magic The Gathering Cards"
         mtgView?.tableView.delegate = self
         mtgView?.tableView.dataSource = self
         mtgView?.tableView.keyboardDismissMode = .onDrag
@@ -50,6 +49,22 @@ class MtgController: UIViewController {
         let okButton = UIAlertAction(title: "Close", style: .cancel)
         alert.addAction(okButton)
         navigationController?.present(alert, animated: true)
+    }
+
+    @objc private func searchButtonPressed(sender: UIButton) {
+        guard let cardName = mtgView?.searchTextField.text, cardName != "" else {
+            self.cards = savedCards
+            self.mtgView?.tableView.reloadData()
+            return
+        }
+
+        let parameters: [String: String] = ["name": cardName]
+
+        fetchCards(parameters: parameters) { data in
+            let cards = data.all
+            self.cards = cards
+            self.mtgView?.tableView.reloadData()
+        }
     }
 }
 
@@ -122,25 +137,5 @@ extension MtgController: UITableViewDelegate {
         let detailViewController = DetailMtgController()
         detailViewController.card = selectedCard
         navigationController?.pushViewController(detailViewController, animated: true)
-    }
-}
-
-//MARK: - @objc functions -
-
-extension MtgController {
-    @objc func searchButtonPressed(sender: UIButton) {
-        guard let cardName = mtgView?.searchTextField.text, cardName != "" else {
-            self.cards = savedCards
-            self.mtgView?.tableView.reloadData()
-            return
-        }
-
-        let parameters: [String: String] = ["name": cardName]
-
-        fetchCards(parameters: parameters) { data in
-            let cards = data.all
-            self.cards = cards
-            self.mtgView?.tableView.reloadData()
-        }
     }
 }

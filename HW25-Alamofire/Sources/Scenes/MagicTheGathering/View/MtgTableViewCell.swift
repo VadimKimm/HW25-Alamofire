@@ -14,7 +14,7 @@ class MtgTableViewCell: UITableViewCell {
 
     // MARK: - Configuration -
 
-    func configure(with card: Card?) {
+    func configure(with card: MtgDisplayable?) {
         cardNameLabel.text = card?.nameLabelText
         cardTypeLabel.text = card?.typeLabelText
     }
@@ -67,8 +67,8 @@ class MtgTableViewCell: UITableViewCell {
 
 extension MtgTableViewCell {
     enum Metrics {
-        static let nameLabelFontSize: CGFloat = 17
-        static let manaCostLabelFontSize: CGFloat = 14
+        static let nameLabelFontSize: CGFloat = 14
+        static let manaCostLabelFontSize: CGFloat = 12
 
         static let nameLabelTopOffset = 15
         static let nameLabelLeftOffset = 17

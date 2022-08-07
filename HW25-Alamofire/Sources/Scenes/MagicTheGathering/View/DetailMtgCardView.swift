@@ -182,7 +182,7 @@ class DetailMtgCardView: UIScrollView {
     }
 
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
 }
 

@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - Cards -
+
 struct Cards: Decodable {
     let all: [Card]
 
