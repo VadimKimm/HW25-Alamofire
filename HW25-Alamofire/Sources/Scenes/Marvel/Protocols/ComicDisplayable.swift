@@ -9,6 +9,8 @@ import Foundation
 
 protocol ComicDisplayable {
     var titleLabelText: String { get }
-    var idLabelText: Int { get }
+    var idLabelText: String { get }
     var imageUrl: String { get }
+    var creatorsLabelText: String { get }
+    var descriptionLabelText: String { get }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - MarvelResponse -
+
 struct MarvelResponse: Decodable {
     let comics: Comics
 
@@ -14,6 +16,8 @@ struct MarvelResponse: Decodable {
         case comics = "data"
     }
 }
+
+//MARK: - Comics -
 
 struct Comics: Decodable {
     let all: [Comic]
