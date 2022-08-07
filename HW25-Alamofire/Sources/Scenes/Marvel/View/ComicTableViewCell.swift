@@ -18,7 +18,7 @@ class ComicTableViewCell: UITableViewCell {
 
     func configure(with comics: ComicDisplayable?) {
         comicTitleLabel.text = comics?.titleLabelText
-        comicIdLabel.text = "Comics id: " + String(comics?.idLabelText ?? -1)
+        comicIdLabel.text = comics?.idLabelText
     }
 
     // MARK: - Views -
