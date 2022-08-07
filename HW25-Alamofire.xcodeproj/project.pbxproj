@@ -25,6 +25,7 @@
 		DD5BAB23289AA3E900CBF00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5BAB21289AA3E900CBF00B /* LaunchScreen.storyboard */; };
 		DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB32289AAA7B00CBF00B /* MtgView.swift */; };
 		DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */; };
+		DD64B197289FFCC50094212D /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64B196289FFCC50094212D /* String + Ext.swift */; };
 		DD805F17289E963500EB6D21 /* ComicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F16289E963500EB6D21 /* ComicsController.swift */; };
 		DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F18289E96C000EB6D21 /* ComicsView.swift */; };
 		DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF2328289C500300DAC447 /* CardsModel.swift */; };
@@ -53,6 +54,7 @@
 		DD5BAB24289AA3E900CBF00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5BAB32289AAA7B00CBF00B /* MtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgView.swift; sourceTree = "<group>"; };
 		DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgTableViewCell.swift; sourceTree = "<group>"; };
+		DD64B196289FFCC50094212D /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		DD805F16289E963500EB6D21 /* ComicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsController.swift; sourceTree = "<group>"; };
 		DD805F18289E96C000EB6D21 /* ComicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsView.swift; sourceTree = "<group>"; };
 		DDCF2328289C500300DAC447 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
@@ -187,6 +189,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DD64B195289FFCB80094212D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD64B196289FFCC50094212D /* String + Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DD805F10289E94BA00EB6D21 /* MagicTheGathering */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		DD805F11289E95D800EB6D21 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				DD64B195289FFCB80094212D /* Extensions */,
 				DD805F15289E95F900EB6D21 /* Protocols */,
 				DD805F14289E95F000EB6D21 /* Controller */,
 				DD805F13289E95ED00EB6D21 /* View */,
@@ -366,6 +377,7 @@
 				DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */,
 				DD1DBD71289C38CF005555A7 /* MtgDisplayable.swift in Sources */,
 				DD092CB6289EB8A30095775A /* ComicModel.swift in Sources */,
+				DD64B197289FFCC50094212D /* String + Ext.swift in Sources */,
 				DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */,
 				DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */,
 				DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */,

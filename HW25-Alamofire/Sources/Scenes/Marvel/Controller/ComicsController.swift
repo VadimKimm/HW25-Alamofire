@@ -10,21 +10,22 @@ import Alamofire
 
 class ComicsController: UIViewController {
 
-
     //MARK: - Properties -
 
     private var comics: [Comic] = []
-    private lazy var savedComicses: [Comic] = []
+    private lazy var savedComics: [Comic] = []
+    private var selectedComic: ComicDisplayable?
+
     private let url = "https://gateway.marvel.com/v1/public/comics"
     private let timeStamp = "10"
     private let marvelPublicKey = "906046b905010b1bbace45bd564eb16f"
     private let marvelPrivateKey = "f61464d42bcf93c72fbee37931962574fefb2147"
-    private lazy var mdFiveHash: String = {
+
+    lazy var mdFiveHash: String = {
         let stringToMd = timeStamp + marvelPrivateKey + marvelPublicKey
-        let mdFiveHash = NetworkSevice.getMdFive(from: stringToMd)
+        let mdFiveHash = stringToMd.getMdFive()
         return mdFiveHash
     }()
-    private var selectedComic: ComicDisplayable?
 
     private var comicsView: ComicsView? {
         guard isViewLoaded else { return nil }
@@ -41,7 +42,7 @@ class ComicsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        fetchAllComicses()
+        fetchAllComics()
     }
 
     //MARK: - Private functions -
@@ -59,12 +60,33 @@ class ComicsController: UIViewController {
         alert.addAction(okButton)
         navigationController?.present(alert, animated: true)
     }
+
+    @objc private func searchButtonPressed(sender: UIButton) {
+        guard let comicTitle = comicsView?.searchTextField.text, comicTitle != "" else {
+            self.comics = savedComics
+            self.comicsView?.tableView.reloadData()
+            return
+        }
+
+        let parameters: [String: String] = [
+            "titleStartsWith": comicTitle,
+            "ts": timeStamp,
+            "apikey": marvelPublicKey,
+            "hash": mdFiveHash
+        ]
+
+        fetchComics(parameters: parameters) { data in
+            let comics = data.comics.all
+            self.comics = comics
+            self.comicsView?.tableView.reloadData()
+        }
+    }
 }
 
 //MARK: - Alamofire -
 
 extension ComicsController {
-    private func fetchComicses(parameters: [String: String]?, completion: @escaping (MarvelResponse) -> Void) {
+    private func fetchComics(parameters: [String: String]?, completion: @escaping (MarvelResponse) -> Void) {
 
         AF.request(url, parameters: parameters)
             .validate()
@@ -76,7 +98,7 @@ extension ComicsController {
                 if let statusCode = response.response?.statusCode, statusCode == 200 {
                     print("Marvel Api Server status -  \(statusCode)")
                 } else if let statusCode = response.response?.statusCode {
-                    self.showAlert(message: "Server status -  \(statusCode)")
+                    self.showAlert(message: "Marvel Api Server status -  \(statusCode)")
                     return
                 }
 
@@ -89,17 +111,17 @@ extension ComicsController {
             }
     }
 
-    private func fetchAllComicses() {
+    private func fetchAllComics() {
         let parameters: [String: String] = [
             "ts": timeStamp,
             "apikey": marvelPublicKey,
             "hash": mdFiveHash
         ]
 
-        fetchComicses(parameters: parameters) { data in
-            let comicses = data.comics.all
-            self.comics = comicses
-            self.savedComicses = comicses
+        fetchComics(parameters: parameters) { data in
+            let comics = data.comics.all
+            self.comics = comics
+            self.savedComics = comics
             self.comicsView?.tableView.reloadData()
         }
     }
@@ -135,28 +157,7 @@ extension ComicsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailViewController = DetailComicController()
-        detailViewController.comics = selectedComic
+        detailViewController.comic = selectedComic
         navigationController?.pushViewController(detailViewController, animated: true)
-    }
-}
-
-
-//MARK: - @objc functions -
-
-extension ComicsController {
-    @objc func searchButtonPressed(sender: UIButton) {
-        guard let cardName = comicsView?.searchTextField.text, cardName != "" else {
-//            self.cards = savedCards
-            self.comicsView?.tableView.reloadData()
-            return
-        }
-
-//        let parameters: [String: String] = ["name": cardName]
-
-//        fetchCards(parameters: parameters) { data in
-//            let cards = data.all
-//            self.cards = cards
-//            self.mtgView?.tableView.reloadData()
-//        }
     }
 }
