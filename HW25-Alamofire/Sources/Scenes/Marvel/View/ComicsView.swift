@@ -20,7 +20,7 @@ class ComicsView: UIView {
 
     lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Find comics by name"
+        textField.placeholder = "Find comic by title"
         textField.textAlignment = .center
         textField.layer.cornerRadius = Metrics.cornerRadius
         textField.clearsOnBeginEditing = true
