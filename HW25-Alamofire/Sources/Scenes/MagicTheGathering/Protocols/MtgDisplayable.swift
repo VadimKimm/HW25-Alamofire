@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - MtgDisplayable -
+
 protocol MtgDisplayable {
     var nameLabelText: String { get }
     var manaCostLabelText: String { get }

@@ -1,26 +1,26 @@
 //
-//  MtgView.swift
+//  ComicsView.swift
 //  HW25-Alamofire
 //
-//  Created by Vadim Kim on 03.08.2022.
+//  Created by Vadim Kim on 06.08.2022.
 //
 
 import UIKit
 
-class MtgView: UIView {
+class ComicsView: UIView {
 
     // MARK: - View -
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.register(MtgTableViewCell.self,
-                           forCellReuseIdentifier: MtgTableViewCell.identifier)
+        tableView.register(ComicTableViewCell.self,
+                           forCellReuseIdentifier: ComicTableViewCell.identifier)
         return tableView
     }()
 
     lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Find card by name"
+        textField.placeholder = "Find comic by title"
         textField.textAlignment = .center
         textField.layer.cornerRadius = Metrics.cornerRadius
         textField.clearsOnBeginEditing = true
@@ -108,7 +108,7 @@ class MtgView: UIView {
 
 //MARK: - Metrics -
 
-extension MtgView {
+extension ComicsView {
     enum Metrics {
         static let searchTextFieldTopOffset = 10
         static let searchTextFieldLeftOffset = 10
@@ -123,3 +123,4 @@ extension MtgView {
         static let cornerRadius: CGFloat = 10
     }
 }
+

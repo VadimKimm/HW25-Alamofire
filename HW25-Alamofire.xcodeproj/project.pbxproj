@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		93A97D0A9D2CEC2801A1AE7A /* Pods_HW25_Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB738BA6F54AF6B04D921BFD /* Pods_HW25_Alamofire.framework */; };
+		DD092CB6289EB8A30095775A /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD092CB5289EB8A30095775A /* ComicModel.swift */; };
+		DD092CB8289EB8C00095775A /* ComicsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD092CB7289EB8C00095775A /* ComicsModel.swift */; };
+		DD092CBA289EC2EA0095775A /* ComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD092CB9289EC2EA0095775A /* ComicTableViewCell.swift */; };
+		DD092CBC289EC39B0095775A /* ComicDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD092CBB289EC39B0095775A /* ComicDisplayable.swift */; };
 		DD1DBD6E289C2B18005555A7 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD6D289C2B18005555A7 /* CardModel.swift */; };
 		DD1DBD71289C38CF005555A7 /* MtgDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD70289C38CF005555A7 /* MtgDisplayable.swift */; };
 		DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD73289C3D2D005555A7 /* DetailMtgController.swift */; };
 		DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */; };
+		DD3E0471289EC8D800B84920 /* DetailComicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E0470289EC8D800B84920 /* DetailComicController.swift */; };
+		DD3E0473289EC92600B84920 /* DetailComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E0472289EC92600B84920 /* DetailComicView.swift */; };
 		DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */; };
 		DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */; };
 		DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB1A289AA3E700CBF00B /* MtgController.swift */; };
@@ -19,6 +25,9 @@
 		DD5BAB23289AA3E900CBF00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5BAB21289AA3E900CBF00B /* LaunchScreen.storyboard */; };
 		DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB32289AAA7B00CBF00B /* MtgView.swift */; };
 		DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */; };
+		DD64B197289FFCC50094212D /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64B196289FFCC50094212D /* String + Ext.swift */; };
+		DD805F17289E963500EB6D21 /* ComicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F16289E963500EB6D21 /* ComicsController.swift */; };
+		DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD805F18289E96C000EB6D21 /* ComicsView.swift */; };
 		DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF2328289C500300DAC447 /* CardsModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,10 +35,16 @@
 		838565066B1E1B0099512610 /* Pods-HW25-Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW25-Alamofire.debug.xcconfig"; path = "Target Support Files/Pods-HW25-Alamofire/Pods-HW25-Alamofire.debug.xcconfig"; sourceTree = "<group>"; };
 		8D6FF5EEEF812616AF544CA6 /* Pods-HW25-Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW25-Alamofire.release.xcconfig"; path = "Target Support Files/Pods-HW25-Alamofire/Pods-HW25-Alamofire.release.xcconfig"; sourceTree = "<group>"; };
 		DB738BA6F54AF6B04D921BFD /* Pods_HW25_Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW25_Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD092CB5289EB8A30095775A /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		DD092CB7289EB8C00095775A /* ComicsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsModel.swift; sourceTree = "<group>"; };
+		DD092CB9289EC2EA0095775A /* ComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTableViewCell.swift; sourceTree = "<group>"; };
+		DD092CBB289EC39B0095775A /* ComicDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDisplayable.swift; sourceTree = "<group>"; };
 		DD1DBD6D289C2B18005555A7 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		DD1DBD70289C38CF005555A7 /* MtgDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgDisplayable.swift; sourceTree = "<group>"; };
 		DD1DBD73289C3D2D005555A7 /* DetailMtgController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgController.swift; sourceTree = "<group>"; };
 		DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgCardView.swift; sourceTree = "<group>"; };
+		DD3E0470289EC8D800B84920 /* DetailComicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComicController.swift; sourceTree = "<group>"; };
+		DD3E0472289EC92600B84920 /* DetailComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComicView.swift; sourceTree = "<group>"; };
 		DD5BAB13289AA3E700CBF00B /* HW25-Alamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW25-Alamofire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +54,9 @@
 		DD5BAB24289AA3E900CBF00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5BAB32289AAA7B00CBF00B /* MtgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgView.swift; sourceTree = "<group>"; };
 		DD5BAB34289AAAFB00CBF00B /* MtgTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtgTableViewCell.swift; sourceTree = "<group>"; };
+		DD64B196289FFCC50094212D /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		DD805F16289E963500EB6D21 /* ComicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsController.swift; sourceTree = "<group>"; };
+		DD805F18289E96C000EB6D21 /* ComicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsView.swift; sourceTree = "<group>"; };
 		DDCF2328289C500300DAC447 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +155,7 @@
 		DD5BAB2E289AA7DF00CBF00B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DD805F11289E95D800EB6D21 /* Marvel */,
 				DD805F10289E94BA00EB6D21 /* MagicTheGathering */,
 			);
 			path = Scenes;
@@ -170,6 +189,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DD64B195289FFCB80094212D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD64B196289FFCC50094212D /* String + Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DD805F10289E94BA00EB6D21 /* MagicTheGathering */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +206,54 @@
 				DD5BAB2F289AA7F500CBF00B /* Model */,
 			);
 			path = MagicTheGathering;
+			sourceTree = "<group>";
+		};
+		DD805F11289E95D800EB6D21 /* Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				DD64B195289FFCB80094212D /* Extensions */,
+				DD805F15289E95F900EB6D21 /* Protocols */,
+				DD805F14289E95F000EB6D21 /* Controller */,
+				DD805F13289E95ED00EB6D21 /* View */,
+				DD805F12289E95E800EB6D21 /* Model */,
+			);
+			path = Marvel;
+			sourceTree = "<group>";
+		};
+		DD805F12289E95E800EB6D21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD092CB5289EB8A30095775A /* ComicModel.swift */,
+				DD092CB7289EB8C00095775A /* ComicsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD805F13289E95ED00EB6D21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD805F18289E96C000EB6D21 /* ComicsView.swift */,
+				DD092CB9289EC2EA0095775A /* ComicTableViewCell.swift */,
+				DD3E0472289EC92600B84920 /* DetailComicView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD805F14289E95F000EB6D21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD805F16289E963500EB6D21 /* ComicsController.swift */,
+				DD3E0470289EC8D800B84920 /* DetailComicController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD805F15289E95F900EB6D21 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DD092CBB289EC39B0095775A /* ComicDisplayable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,15 +371,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */,
+				DD805F19289E96C000EB6D21 /* ComicsView.swift in Sources */,
+				DD092CBC289EC39B0095775A /* ComicDisplayable.swift in Sources */,
 				DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */,
 				DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */,
 				DD1DBD71289C38CF005555A7 /* MtgDisplayable.swift in Sources */,
+				DD092CB6289EB8A30095775A /* ComicModel.swift in Sources */,
+				DD64B197289FFCC50094212D /* String + Ext.swift in Sources */,
 				DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */,
 				DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */,
 				DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */,
 				DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */,
 				DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */,
+				DD3E0473289EC92600B84920 /* DetailComicView.swift in Sources */,
+				DD3E0471289EC8D800B84920 /* DetailComicController.swift in Sources */,
 				DD1DBD6E289C2B18005555A7 /* CardModel.swift in Sources */,
+				DD092CB8289EB8C00095775A /* ComicsModel.swift in Sources */,
+				DD092CBA289EC2EA0095775A /* ComicTableViewCell.swift in Sources */,
+				DD805F17289E963500EB6D21 /* ComicsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

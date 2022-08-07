@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - Card -
+
 struct Card: Decodable {
     private let name: String?
     private let manaCost: String?
@@ -24,6 +26,8 @@ struct Card: Decodable {
         case imageURL = "imageUrl"
         case description = "text"
     }
+
+    //MARK: - LegalityElement -
 
     struct LegalityElement: Decodable {
         let format: String
