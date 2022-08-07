@@ -11,21 +11,22 @@ class DetailComicView: UIScrollView {
 
     // MARK: - Configuration -
 
-    func configure(with comics: ComicDisplayable?) {
-        comicTitleLabel.text = comics?.titleLabelText
-        comicIdLabel.text = "Comics id: " + String(comics?.idLabelText ?? -1)
+    func configure(with comic: ComicDisplayable?) {
+        comicTitleLabel.text = comic?.titleLabelText
+        comicIdLabel.text = comic?.idLabelText
+        comicCreatorsLabel.text = comic?.creatorsLabelText
+        comicDescriptionLabel.text = comic?.descriptionLabelText
 
-
-        DispatchQueue.main.async {
-            guard let imagePath = comics?.imageUrl,
+        let queue = DispatchQueue(label: "myQueue", qos: .userInteractive)
+        queue.async {
+            guard let imagePath = comic?.imageUrl,
                   let imageURL = URL(string: imagePath),
                   let imageData = try? Data(contentsOf: imageURL)
-            else {
-                self.comicImage.image = UIImage(named: "square-image")
-                return
-            }
+            else { return }
 
-            self.comicImage.image = UIImage(data: imageData)
+            DispatchQueue.main.async {
+                self.comicImage.image = UIImage(data: imageData)
+            }
         }
     }
 
@@ -43,16 +44,15 @@ class DetailComicView: UIScrollView {
         return label
     }()
 
-    private lazy var comicImage: UIImageView = {
+    private var comicImage: UIImageView = {
         let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
+        image.image = UIImage(systemName: "icloud.and.arrow.down")
         return image
     }()
 
     private lazy var comicImageContainer: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.clipsToBounds = true
         return view
@@ -62,6 +62,20 @@ class DetailComicView: UIScrollView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
         label.numberOfLines = 1
+        return label
+    }()
+
+    private lazy var comicCreatorsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    private lazy var comicDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Metrics.primaryFontSize)
+        label.numberOfLines = 0
         return label
     }()
 
@@ -91,27 +105,28 @@ class DetailComicView: UIScrollView {
         parentView.addSubview(comicImageContainer)
         parentView.addSubview(comicImage)
         parentView.addSubview(comicIdLabel)
+        parentView.addSubview(comicCreatorsLabel)
+        parentView.addSubview(comicDescriptionLabel)
     }
 
     private func setupLayout() {
         parentView.snp.makeConstraints { make in
             make.edges.equalTo(self.snp.edges)
             make.width.equalTo(self.snp.width)
-            make.height.equalTo(self.snp.height).offset(Metrics.parentViewHeightOffset)
+            make.height.equalTo(self.snp.height).offset(Metrics.parentViewPortraitHeightOffset)
         }
 
         comicTitleLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(parentView.snp.centerX)
             make.top.equalTo(parentView.safeAreaLayoutGuide.snp.top).offset(Metrics.primaryTopOffset)
-            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(15)
-            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(-15)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
 
         comicImageContainer.snp.makeConstraints { make in
-            make.top.equalTo(comicTitleLabel.snp.bottom).offset(15)
+            make.top.equalTo(comicTitleLabel.snp.bottom).offset(Metrics.primaryTopOffset)
             make.centerX.equalTo(parentView.snp.centerX)
-            make.height.equalTo(parentView.snp.width)
-            make.width.equalTo(parentView.snp.width)
+            make.height.equalTo(400)
+            make.width.equalTo(300)
         }
 
         comicImage.snp.makeConstraints { make in
@@ -120,6 +135,18 @@ class DetailComicView: UIScrollView {
 
         comicIdLabel.snp.makeConstraints { make in
             make.top.equalTo(comicImageContainer.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
+        }
+
+        comicCreatorsLabel.snp.makeConstraints { make in
+            make.top.equalTo(comicIdLabel.snp.bottom).offset(Metrics.primaryTopOffset)
+            make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
+            make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
+        }
+
+        comicDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(comicCreatorsLabel.snp.bottom).offset(Metrics.primaryTopOffset)
             make.left.equalTo(parentView.safeAreaLayoutGuide.snp.left).offset(Metrics.primaryLeftOffset)
             make.right.equalTo(parentView.safeAreaLayoutGuide.snp.right).offset(Metrics.primaryRightOffset)
         }
@@ -137,11 +164,10 @@ extension DetailComicView {
         static let comicTitleLabelFontSize: CGFloat = 22
         static let primaryFontSize: CGFloat = 14
 
-        static let parentViewHeightOffset = 220
+        static let parentViewPortraitHeightOffset = 500
 
         static let primaryTopOffset = 15
         static let primaryLeftOffset = 15
         static let primaryRightOffset = -20
     }
 }
-
