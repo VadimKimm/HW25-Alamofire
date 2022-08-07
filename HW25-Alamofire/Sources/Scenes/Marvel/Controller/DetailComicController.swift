@@ -11,9 +11,9 @@ class DetailComicController: UIViewController {
 
     //MARK: - Properties -
 
-    var comics: ComicDisplayable?
+    var comic: ComicDisplayable?
 
-    private var detailMtgView: DetailComicView? {
+    private var detailComicView: DetailComicView? {
         guard isViewLoaded else { return nil }
         return view as? DetailComicView
     }
@@ -33,6 +33,6 @@ class DetailComicController: UIViewController {
     //MARK: - Private functions -
 
     private func commonInit() {
-        detailMtgView?.configure(with: comics)
+        detailComicView?.configure(with: comic)
     }
 }
