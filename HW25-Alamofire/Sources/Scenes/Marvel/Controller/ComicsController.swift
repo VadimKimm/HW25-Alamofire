@@ -35,7 +35,6 @@ class ComicsController: UIViewController {
     //MARK: - Lifecycle -
 
     override func loadView() {
-        super.loadView()
         view = ComicsView()
     }
 
