@@ -25,7 +25,6 @@ class MtgController: UIViewController {
     //MARK: - Lifecycle -
 
     override func loadView() {
-        super.loadView()
         view = MtgView()
     }
 

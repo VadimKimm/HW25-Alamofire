@@ -114,16 +114,20 @@ class DetailMtgCardView: UIScrollView {
     // MARK: - Settings -
 
     private func setupHierarchy() {
+        let parentViewSubviews = [
+            nameLabel,
+            typeLabel,
+            descriptionLabel,
+            rarityLabel,
+            setNameLabel,
+            powerLabel,
+            artistLabel,
+            manaCostLabel,
+            legalitiesLabel
+        ]
+
         addSubview(parentView)
-        parentView.addSubview(nameLabel)
-        parentView.addSubview(typeLabel)
-        parentView.addSubview(descriptionLabel)
-        parentView.addSubview(rarityLabel)
-        parentView.addSubview(setNameLabel)
-        parentView.addSubview(powerLabel)
-        parentView.addSubview(artistLabel)
-        parentView.addSubview(manaCostLabel)
-        parentView.addSubview(legalitiesLabel)
+        parentViewSubviews.forEach { parentView.addSubview($0) }
     }
 
     private func setupLayout() {

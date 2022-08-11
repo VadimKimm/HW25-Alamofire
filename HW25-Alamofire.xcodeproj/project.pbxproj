@@ -18,6 +18,7 @@
 		DD1DBD76289C3D80005555A7 /* DetailMtgCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */; };
 		DD3E0471289EC8D800B84920 /* DetailComicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E0470289EC8D800B84920 /* DetailComicController.swift */; };
 		DD3E0473289EC92600B84920 /* DetailComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E0472289EC92600B84920 /* DetailComicView.swift */; };
+		DD4A638C28A192BD00C08979 /* MarvelNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A638B28A192BD00C08979 /* MarvelNetworkService.swift */; };
 		DD5BAB17289AA3E700CBF00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */; };
 		DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */; };
 		DD5BAB1B289AA3E700CBF00B /* MtgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5BAB1A289AA3E700CBF00B /* MtgController.swift */; };
@@ -45,6 +46,7 @@
 		DD1DBD75289C3D80005555A7 /* DetailMtgCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMtgCardView.swift; sourceTree = "<group>"; };
 		DD3E0470289EC8D800B84920 /* DetailComicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComicController.swift; sourceTree = "<group>"; };
 		DD3E0472289EC92600B84920 /* DetailComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComicView.swift; sourceTree = "<group>"; };
+		DD4A638B28A192BD00C08979 /* MarvelNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelNetworkService.swift; sourceTree = "<group>"; };
 		DD5BAB13289AA3E700CBF00B /* HW25-Alamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW25-Alamofire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5BAB16289AA3E700CBF00B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5BAB18289AA3E700CBF00B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 				DD1DBD70289C38CF005555A7 /* MtgDisplayable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DD4A638A28A192AA00C08979 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DD4A638B28A192BD00C08979 /* MarvelNetworkService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		DD5BAB0A289AA3E700CBF00B = {
@@ -211,6 +221,7 @@
 		DD805F11289E95D800EB6D21 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				DD4A638A28A192AA00C08979 /* Networking */,
 				DD64B195289FFCB80094212D /* Extensions */,
 				DD805F15289E95F900EB6D21 /* Protocols */,
 				DD805F14289E95F000EB6D21 /* Controller */,
@@ -380,6 +391,7 @@
 				DD64B197289FFCC50094212D /* String + Ext.swift in Sources */,
 				DD1DBD74289C3D2D005555A7 /* DetailMtgController.swift in Sources */,
 				DDCF2329289C500300DAC447 /* CardsModel.swift in Sources */,
+				DD4A638C28A192BD00C08979 /* MarvelNetworkService.swift in Sources */,
 				DD5BAB19289AA3E700CBF00B /* SceneDelegate.swift in Sources */,
 				DD5BAB35289AAAFB00CBF00B /* MtgTableViewCell.swift in Sources */,
 				DD5BAB33289AAA7B00CBF00B /* MtgView.swift in Sources */,

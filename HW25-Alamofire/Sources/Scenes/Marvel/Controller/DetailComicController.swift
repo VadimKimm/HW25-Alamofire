@@ -21,7 +21,6 @@ class DetailComicController: UIViewController {
     //MARK: - Lifecycle -
 
     override func loadView() {
-        super.loadView()
         view = DetailComicView()
     }
 

@@ -15,17 +15,7 @@ class ComicsController: UIViewController {
     private var comics: [Comic] = []
     private lazy var savedComics: [Comic] = []
     private var selectedComic: ComicDisplayable?
-
-    private let url = "https://gateway.marvel.com/v1/public/comics"
-    private let timeStamp = "10"
-    private let marvelPublicKey = "906046b905010b1bbace45bd564eb16f"
-    private let marvelPrivateKey = "f61464d42bcf93c72fbee37931962574fefb2147"
-
-    lazy var mdFiveHash: String = {
-        let stringToMd = timeStamp + marvelPrivateKey + marvelPublicKey
-        let mdFiveHash = stringToMd.getMdFive()
-        return mdFiveHash
-    }()
+    private let networkService = MarvelNetworkService()
 
     private var comicsView: ComicsView? {
         guard isViewLoaded else { return nil }
@@ -35,7 +25,6 @@ class ComicsController: UIViewController {
     //MARK: - Lifecycle -
 
     override func loadView() {
-        super.loadView()
         view = ComicsView()
     }
 
@@ -54,6 +43,19 @@ class ComicsController: UIViewController {
         comicsView?.searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
 
+    private func fetchAllComics() {
+        networkService.fetchComics(parameters: nil) { data, error in
+            if let alertMessage = error {
+                self.showAlert(message: alertMessage)
+            } else if let data = data {
+                let comics = data.comics.all
+                self.comics = comics
+                self.savedComics = comics
+                self.comicsView?.tableView.reloadData()
+            }
+        }
+    }
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Close", style: .cancel)
@@ -69,60 +71,17 @@ class ComicsController: UIViewController {
         }
 
         let parameters: [String: String] = [
-            "titleStartsWith": comicTitle,
-            "ts": timeStamp,
-            "apikey": marvelPublicKey,
-            "hash": mdFiveHash
+            "titleStartsWithe": comicTitle,
         ]
 
-        fetchComics(parameters: parameters) { data in
-            let comics = data.comics.all
-            self.comics = comics
-            self.comicsView?.tableView.reloadData()
-        }
-    }
-}
-
-//MARK: - Alamofire -
-
-extension ComicsController {
-    private func fetchComics(parameters: [String: String]?, completion: @escaping (MarvelResponse) -> Void) {
-
-        AF.request(url, parameters: parameters)
-            .validate()
-            .responseDecodable(of: MarvelResponse.self) { (response) in
-                if let error = response.error {
-                    self.showAlert(message: error.localizedDescription)
-                }
-
-                if let statusCode = response.response?.statusCode, statusCode == 200 {
-                    print("Marvel Api Server status -  \(statusCode)")
-                } else if let statusCode = response.response?.statusCode {
-                    self.showAlert(message: "Marvel Api Server status -  \(statusCode)")
-                    return
-                }
-
-                guard let data = response.value else {
-                    self.showAlert(message: "No data")
-                    return
-                }
-
-                completion(data)
+        networkService.fetchComics(parameters: parameters) { data, error in
+            if let alertMessage = error {
+                self.showAlert(message: alertMessage)
+            } else if let data = data {
+                let comics = data.comics.all
+                self.comics = comics
+                self.comicsView?.tableView.reloadData()
             }
-    }
-
-    private func fetchAllComics() {
-        let parameters: [String: String] = [
-            "ts": timeStamp,
-            "apikey": marvelPublicKey,
-            "hash": mdFiveHash
-        ]
-
-        fetchComics(parameters: parameters) { data in
-            let comics = data.comics.all
-            self.comics = comics
-            self.savedComics = comics
-            self.comicsView?.tableView.reloadData()
         }
     }
 }
