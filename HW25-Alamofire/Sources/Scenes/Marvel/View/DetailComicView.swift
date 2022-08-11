@@ -100,13 +100,18 @@ class DetailComicView: UIScrollView {
     // MARK: - Settings -
 
     private func setupHierarchy() {
+        let parentViewSubviews = [
+            comicTitleLabel,
+            comicImageContainer,
+            comicImage,
+            comicIdLabel,
+            comicCreatorsLabel,
+            comicDescriptionLabel
+        ]
+
         addSubview(parentView)
-        parentView.addSubview(comicTitleLabel)
-        parentView.addSubview(comicImageContainer)
-        parentView.addSubview(comicImage)
-        parentView.addSubview(comicIdLabel)
-        parentView.addSubview(comicCreatorsLabel)
-        parentView.addSubview(comicDescriptionLabel)
+        parentViewSubviews.forEach { parentView.addSubview($0) }
+//        parentViewSubviews.map { parentView.addSubview($0) }
     }
 
     private func setupLayout() {
